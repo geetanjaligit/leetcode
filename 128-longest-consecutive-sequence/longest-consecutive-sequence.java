@@ -3,7 +3,7 @@ class Solution {
         if (nums.length == 0) {
             return 0; // Handle the empty array case
         }
-        int count,max_length=0,current;
+        int max_length=0;
         HashSet<Integer> set=new HashSet<>();
         for(int i=0;i<nums.length;i++)
         {
@@ -13,8 +13,8 @@ class Solution {
         {
             if(!set.contains(nums[i]-1))
             {
-                current=nums[i];
-                count=1;
+                int current=nums[i];
+                int count=1;
                 while(set.contains(current+1))
                 {
                     current++;
