@@ -3,7 +3,7 @@ class Solution {
         if (nums.length == 0) {
             return 0; // Handle the empty array case
         }
-        int count=1,max_length=0,start,current;
+        int count,max_length=0,current;
         HashSet<Integer> set=new HashSet<>();
         for(int i=0;i<nums.length;i++)
         {
@@ -20,8 +20,8 @@ class Solution {
                     current++;
                     count++;
                 }
-                if(count>max_length)
-                   max_length=count;      
+                //update max_length
+                max_length=Math.max(max_length,count);   
             }
         }
         return max_length;
