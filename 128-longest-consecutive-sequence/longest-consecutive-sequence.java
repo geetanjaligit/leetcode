@@ -28,7 +28,7 @@ class Solution {
                 }
                 if(count>max_length)
                    max_length=count;
-                   continue;
+                   
             }
         }
         return max_length;
