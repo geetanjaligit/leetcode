@@ -1,29 +1,41 @@
-public class Solution {
+class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        Arrays.sort(nums);
-        List<List<Integer>> res = new ArrayList<>();
+        
+        Arrays.sort(nums);  // Step 1: Sort the array
+        List<List<Integer>> list = new ArrayList<>();
+        int left, right;
 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > 0) break;
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
+        for (int i = 0; i < nums.length - 2; i++) {  // Traverse till the third last element
+            // Skip duplicate elements to avoid duplicate triplets
+            if (i > 0 && nums[i] == nums[i - 1])
+                continue;
 
-            int l = i + 1, r = nums.length - 1;
-            while (l < r) {
-                int sum = nums[i] + nums[l] + nums[r];
-                if (sum > 0) {
-                    r--;
-                } else if (sum < 0) {
-                    l++;
-                } else {
-                    res.add(Arrays.asList(nums[i], nums[l], nums[r]));
-                    l++;
-                    r--;
-                    while (l < r && nums[l] == nums[l - 1]) {
-                        l++;
-                    }
+            left = i + 1;
+            right = nums.length - 1;
+            int diff = 0 - nums[i];
+
+            while (left < right) {
+                int sum = nums[left] + nums[right];
+                
+                if (sum == diff) {
+                    list.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    
+                    // Move left and right pointers to avoid duplicates
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+                    
+                    left++;
+                    right--;
+                } 
+                else if (sum < diff) {
+                    left++;  // Increase the left pointer to get a larger sum
+                } 
+                else {
+                    right--;  // Decrease the right pointer to get a smaller sum
                 }
             }
         }
-        return res;
+        
+        return list;
     }
 }
