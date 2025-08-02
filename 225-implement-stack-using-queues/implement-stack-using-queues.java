@@ -10,7 +10,7 @@ class MyStack {
     }
     
     public int pop() {
-        if(qe.isEmpty())
+        if(empty())
 		{
 			return -1;
 		}
