@@ -3,7 +3,7 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) {
+ *     ListNod33e(int x) {
  *         val = x;
  *         next = null;
  *     }
@@ -41,33 +41,28 @@ public class Solution {
             return headA;
             }
         }
-        ListNode temp=null;
-        ListNode temp2=null;
+        ListNode tempA=headA;
+        ListNode tempB=headB;
         if(sizeA>sizeB)
         {
-            temp=headA;
             for(int i=1;i<=diff;i++)
             {
-                temp=temp.next;
+                tempA=tempA.next;
             }
-            temp2=headB;
-
         }
         else
         {
-            temp=headB;
             for(int i=1;i<=diff;i++)
             {
-                temp=temp.next;
+                tempB=tempB.next;
             }
-            temp2=headA;
         }
-        while(temp!=temp2)
+        while(tempA!=tempB)
         {
-            temp=temp.next;
-            temp2=temp2.next;
+            tempA=tempA.next;
+            tempB=tempB.next;
         }
-        return temp;
+        return tempA;
         
     }
 }
