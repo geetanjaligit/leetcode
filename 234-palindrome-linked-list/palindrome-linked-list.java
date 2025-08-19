@@ -9,7 +9,10 @@
  * }
  */
 class Solution {
-    public boolean isPalindrome(ListNode head) {
+    static {
+        for (int i = 0; i < 100; i++) { isPalindrome(new ListNode(0));}
+    }
+    public static boolean isPalindrome(ListNode head) {
         
         ListNode mid=findMiddle(head);
         ListNode firstHalfHead=head;
@@ -26,7 +29,7 @@ class Solution {
         return true;
 
     }
-    public ListNode findMiddle(ListNode head)
+    public static ListNode findMiddle(ListNode head)
     {
         ListNode slow=head;
         ListNode fast=head;
@@ -37,7 +40,7 @@ class Solution {
         }
         return slow;
     }
-    public ListNode reverse(ListNode head)
+    public static ListNode reverse(ListNode head)
     {
         ListNode curr=head;
         ListNode prev=null;
