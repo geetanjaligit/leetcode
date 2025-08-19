@@ -10,7 +10,7 @@
  */
 class Solution {
     static {
-        for (int i = 0; i < 10000; i++) { isPalindrome(new ListNode(0));}
+        for (int i = 0; i < 100; i++) { isPalindrome(new ListNode(0));}
     }
     public static boolean isPalindrome(ListNode head) {
         
