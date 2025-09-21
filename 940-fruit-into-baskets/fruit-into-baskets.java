@@ -1,4 +1,4 @@
-class Solution {
+// class Solution {
     //brute force
     // public int totalFruit(int[] fruits) {
     //     int max_length=0;
@@ -23,26 +23,25 @@ class Solution {
     // }
 
     //Optimized - O(n)
+    // 
+    
+    class Solution {
     public int totalFruit(int[] fruits) {
-        int l=0,r=0,max_len=0;
-        int n=fruits.length;
-        HashMap<Integer,Integer>map=new HashMap<>();
-        while(r<n)
-        {
-            map.put(fruits[r],map.getOrDefault(fruits[r],0)+1);
-            if(map.size()>2)
-            {
-                map.put(fruits[l], map.get(fruits[l]) - 1);
-                if(map.get(fruits[l])==0)
-                  map.remove(fruits[l]);
-                l++;
+        Map<Integer, Integer> count = new HashMap<>();
+        int left = 0, maxLen = 0;
+          for (int right = 0; right < fruits.length; right++) {
+            count.put(fruits[right], count.getOrDefault(fruits[right], 0) + 1);
+
+            while (count.size() > 2) {
+                count.put(fruits[left], count.get(fruits[left]) - 1);
+                if (count.get(fruits[left]) == 0) {
+                    count.remove(fruits[left]);
+                }
+                left++;
             }
-            if(map.size()<=2)
-            {
-                max_len=Math.max(max_len,r-l+1);
-            }
-            r++;
+            maxLen = Math.max(maxLen, right - left + 1);
         }
-        return max_len;
+        return maxLen;
     }
 }
+// }
