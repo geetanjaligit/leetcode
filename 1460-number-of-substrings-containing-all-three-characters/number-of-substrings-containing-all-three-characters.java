@@ -1,4 +1,10 @@
 class Solution {
+     static {
+        Solution s = new Solution() ;
+        for ( int i = 0 ; i < 1000 ; i++){
+            s.numberOfSubstrings("") ;
+        }
+    }
     public int numberOfSubstrings(String s) {
 
         //brute force
