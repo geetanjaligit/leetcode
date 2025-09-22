@@ -26,8 +26,7 @@ class Solution {
 
         //optimized one- O(n)
         int count=0,n=s.length();
-        int[]lastSeen=new int[3];
-        Arrays.fill(lastSeen,-1);
+        int[]lastSeen={-1,-1,-1};
         for(int i=0;i<n;i++)
         {
             char ch=s.charAt(i);
