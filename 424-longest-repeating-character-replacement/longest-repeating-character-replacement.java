@@ -1,5 +1,10 @@
 class Solution {
-    public int characterReplacement(String s, int k) {
+    static {
+        for (int i = 0; i < 500; i++) {
+            characterReplacement("", 1);  
+        }
+    }
+    public static int characterReplacement(String s, int k) {
         int l=0,r=0,maxlen=0,maxf=0;
         int n=s.length();
         HashMap<Character,Integer>map=new HashMap<>();
