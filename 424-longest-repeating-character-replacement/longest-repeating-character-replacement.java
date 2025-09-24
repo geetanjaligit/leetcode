@@ -8,7 +8,7 @@ class Solution {
         int l=0,r=0,maxlen=0,maxf=0;
         int n=s.length();     
         int []hash=new int[26];
-        Arrays.fill(hash,0);
+        // Arrays.fill(hash,0);
         while(r<n)
         {
             
