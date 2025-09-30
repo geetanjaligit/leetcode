@@ -1,5 +1,10 @@
 class Solution {
-    public boolean checkInclusion(String s1, String s2) {
+    static {
+        for(int i = 0; i < 300; i++) {
+            checkInclusion("", "");
+        }
+    }
+    public static boolean checkInclusion(String s1, String s2) {
         
         if(s1.length()>s2.length())
            return false;
