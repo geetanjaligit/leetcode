@@ -2,7 +2,7 @@ class Solution {
     static
     {
         int []nums={1,2,3};
-        for(int i=0;i<300;i++)
+        for(int i=0;i<1000;i++)
         {
            subarraySum(nums,0);
         }
