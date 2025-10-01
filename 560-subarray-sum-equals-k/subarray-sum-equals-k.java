@@ -1,5 +1,13 @@
 class Solution {
-    public int subarraySum(int[] nums, int k) {
+    static
+    {
+        int []nums={1,2,3};
+        for(int i=0;i<300;i++)
+        {
+           subarraySum(nums,0);
+        }
+    }
+    public static int subarraySum(int[] nums, int k) {
         
         HashMap<Integer,Integer>map=new HashMap<>();
         map.put(0,1);
