@@ -1,8 +1,7 @@
 class Solution {
-   static {
-        for(int i=0;i<300;i++){
-            int arr[]={0,0};
-            numberOfSubarrays(arr,0);
+    static {
+        for (int i = 0; i < 300; i++) {
+            numberOfSubarrays(new int[2],2);
         }
     }
     public static int numberOfSubarrays(int[] nums, int k) {
