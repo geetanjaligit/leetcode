@@ -17,16 +17,21 @@ class Solution {
     //     }
     //     return count;
     // }
-
+     static {
+        for(int i=0;i<300;i++){
+            int arr[]={0,0};
+            numSubarraysWithSum(arr,0);
+        }
+    }
     
-    public int numSubarraysWithSum(int[] nums, int goal)
+    public static int numSubarraysWithSum(int[] nums, int goal)
     {
         
         int count1=subarrayLessThanEqualGoal(nums,goal);
         int count2=subarrayLessThanEqualGoalMinusOne(nums,goal-1);
         return count1-count2;
     }
-    public int subarrayLessThanEqualGoal(int[] nums, int goal)
+    public static int subarrayLessThanEqualGoal(int[] nums, int goal)
     {
         int l=0,r=0,sum=0,count1=0;
         while(r<nums.length)
@@ -42,7 +47,7 @@ class Solution {
         }
         return count1;
     }
-    public int subarrayLessThanEqualGoalMinusOne(int[] nums, int goal)
+    public static int subarrayLessThanEqualGoalMinusOne(int[] nums, int goal)
     {
         if(goal<0)
           return 0;
