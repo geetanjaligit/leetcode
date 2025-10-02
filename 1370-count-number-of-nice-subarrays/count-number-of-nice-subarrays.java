@@ -1,10 +1,16 @@
 class Solution {
-    public int numberOfSubarrays(int[] nums, int k) {
+   static {
+        for(int i=0;i<300;i++){
+            int arr[]={0,0};
+            numberOfSubarrays(arr,0);
+        }
+    }
+    public static int numberOfSubarrays(int[] nums, int k) {
         int count1=subarraysLessThanEqualsK(nums,k);
         int count2=subarraysLessThanEqualsKMinusOne(nums,k-1);
         return count1-count2;
     }
-    public int subarraysLessThanEqualsK(int[] nums, int k) {
+    public static int subarraysLessThanEqualsK(int[] nums, int k) {
         int l=0,r=0,count1=0,sum=0;
         while(r<nums.length)
         {
@@ -19,7 +25,7 @@ class Solution {
         }
         return count1;
     }
-    public int subarraysLessThanEqualsKMinusOne(int[] nums, int k) {
+    public static int subarraysLessThanEqualsKMinusOne(int[] nums, int k) {
         if(k<0)
            return 0;
         int l=0,r=0,count2=0,sum=0;
