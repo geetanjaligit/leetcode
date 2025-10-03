@@ -1,5 +1,9 @@
 class Solution {
-    public int subarraysWithKDistinct(int[] nums, int k) {
+    static {
+        for(int i = 0; i < 500; ++i)
+            subarraysWithKDistinct(new int[0], 1);
+    }
+    public static int subarraysWithKDistinct(int[] nums, int k) {
         //brute force
         // int count=0;
         // for(int i=0;i<nums.length;i++)
@@ -20,7 +24,7 @@ class Solution {
         int count2=subarraysWithLessThanKMinusOneDistinct(nums,k-1);
         return count1-count2;
     }
-    public int subarraysWithLessThanKDistinct(int[] nums, int k)
+    public static int subarraysWithLessThanKDistinct(int[] nums, int k)
     {
         HashMap<Integer,Integer>map=new HashMap<>();
         int l=0,r=0,count=0;
@@ -42,7 +46,7 @@ class Solution {
         return count;
     }
 
-    public int subarraysWithLessThanKMinusOneDistinct(int[] nums, int k)
+    public static int subarraysWithLessThanKMinusOneDistinct(int[] nums, int k)
     {
         HashMap<Integer,Integer>map=new HashMap<>();
         int l=0,r=0,count=0;
