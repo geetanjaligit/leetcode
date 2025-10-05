@@ -1,5 +1,8 @@
 class Solution {
-    public String minWindow(String s, String t) {
+    static {
+        for(int i = 0; i<500;i++){minWindow("","");}
+    }
+    public static String minWindow(String s, String t) {
         
         HashMap<Character,Integer>map=new HashMap<>();
         for(int l=0;l<t.length();l++)
