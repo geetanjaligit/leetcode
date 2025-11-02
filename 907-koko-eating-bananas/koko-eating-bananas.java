@@ -23,7 +23,7 @@ class Solution {
         long totalHours=0;
         for(int bananas:piles)
         {
-            totalHours=(long)(totalHours+Math.ceil((double)bananas/k));
+            totalHours=(totalHours+(long)Math.ceil((double)bananas/k));
             if(totalHours>h)
                return false;
         }
