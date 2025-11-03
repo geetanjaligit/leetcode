@@ -3,9 +3,7 @@ class Solution {
         if ((long)m * k > bloomDay.length)
             return -1;
 
-        int st = 1, end = 0;
-        for (int i : bloomDay)
-            end = Math.max(end, i);
+        int st = 1, end = (int)1e9;
 
         int ans = end;
         while (st <= end) {
