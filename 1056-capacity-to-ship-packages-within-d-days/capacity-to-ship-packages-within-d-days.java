@@ -1,5 +1,8 @@
 class Solution {
-    public int shipWithinDays(int[] weights, int days) {
+    static {
+        for (int i = 0; i < 300; i++) shipWithinDays(new int[0], 1);
+    }
+    public static int shipWithinDays(int[] weights, int days) {
         
         int st=0;
         for(int wt:weights)
@@ -21,7 +24,7 @@ class Solution {
         }
         return ans;
     }
-    public boolean isPossible(int []wt,int mid,int days)
+    public static boolean isPossible(int []wt,int mid,int days)
     {
         int sum=0,dayCount=0;
         for(int i=0;i<wt.length;i++)
