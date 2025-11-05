@@ -4,12 +4,11 @@ class Solution {
     }
     public static int shipWithinDays(int[] weights, int days) {
         
-        int st=0;
-        for(int wt:weights)
+        int st=0,end=0;
+        for(int wt:weights){
             st=Math.max(st,wt);
-        int end=0;
-        for(int wt:weights)
             end=end+wt;
+        }
         int ans=st;
         while(st<=end)
         {
