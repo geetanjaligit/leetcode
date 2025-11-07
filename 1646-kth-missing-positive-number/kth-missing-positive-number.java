@@ -13,23 +13,20 @@ class Solution {
 
     public int findKthPositive(int[] arr, int k) 
     {
-        int []nums=new int[arr.length];
-        for(int i=0;i<arr.length;i++)
-        {
-            nums[i]=arr[i]-(i+1);
-        }
-        int st=0,end=nums.length-1;
-        if(k<=nums[0])
+        if(k<=arr[0]-1)
            return k;
+        int st=0,end=arr.length-1;
         while(st<=end)
         {
             int mid=st+(end-st)/2;
-            if(nums[mid]<k)
-               st=mid+1;
-            else
-               end=mid-1;
+            int num=arr[mid]-(mid+1);
+            
+            if(num<k)
+              st=mid+1;
+            else 
+              end=mid-1;
         }
-        int remaining=k-nums[end];
-        return arr[end]+remaining;
+        int rem=k-(arr[end]-end-1);
+        return arr[end]+rem;
     }
 }
