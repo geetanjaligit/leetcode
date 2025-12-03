@@ -1,7 +1,7 @@
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val; 
+ *     int val;
  *     TreeNode left;
  *     TreeNode right;
  *     TreeNode() {}
@@ -14,24 +14,18 @@
  * }
  */
 class Solution {
+    int maxD=0;
+    public int diameterOfBinaryTree(TreeNode root) {
+        ht(root);
+        return maxD;
+    }
     public int ht(TreeNode root)
     {
         if(root==null)
            return 0;
-        if(root.left==null && root.right==null)
-           return 0;
-        return 1+Math.max(ht(root.left),ht(root.right));
-    }
-    public int diameterOfBinaryTree(TreeNode root) {
-        if(root==null)
-           return 0;
-        int dr=ht(root.left)+ht(root.right);
-        if(root.left!=null)
-           dr++;
-        if(root.right!=null)
-           dr++;
-        int dil=diameterOfBinaryTree(root.left);
-        int dir=diameterOfBinaryTree(root.right);
-        return Math.max(dr,Math.max(dil,dir));
+        int leftht=ht(root.left);
+        int rightht=ht(root.right);
+        maxD=Math.max(maxD,leftht+rightht);
+        return 1+Math.max(leftht,rightht);
     }
 }
