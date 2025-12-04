@@ -22,10 +22,11 @@ class Solution {
     public int ht(TreeNode root)
     {
         if(root==null)
-           return 0;
+           return -1;
         int leftht=ht(root.left);
         int rightht=ht(root.right);
-        maxD=Math.max(maxD,leftht+rightht);
+        
+        maxD=Math.max(maxD,leftht+rightht+2);
         return 1+Math.max(leftht,rightht);
     }
 }
