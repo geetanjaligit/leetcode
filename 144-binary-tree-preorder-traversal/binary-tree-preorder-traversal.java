@@ -18,11 +18,12 @@ class Solution {
         Stack<TreeNode>st=new Stack<>();
         List<Integer>list=new ArrayList<>();
         TreeNode node=root;
-        if(node!=null)
-           st.push(node);
+        st.push(node);
         while(!st.isEmpty())
         {
             node=st.pop();
+            if(node==null)
+               return list;
             list.add(node.val);
             if(node.right!=null)
                st.push(node.right);
