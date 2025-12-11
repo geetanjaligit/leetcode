@@ -13,34 +13,24 @@
  *     }
  * }
  */
-
 class Solution {
-    static void preOrder1(TreeNode root, List<Integer> list) { //recursive approach
-        if (root == null)
-            return;
-        list.add(root.val);
-        preOrder1(root.left, list);
-        preOrder1(root.right, list);
-    }
-
-    static void preOrder2(TreeNode root, List<Integer> list) { //iterative approach
-        Stack<TreeNode> st = new Stack<>();
-        if (root != null)
-            st.push(root);
-        while (!st.isEmpty()) {
-            TreeNode front = st.pop();
-            list.add(front.val);
-            if (front.right != null)
-                st.push(front.right);
-            if (front.left != null)
-                st.push(front.left);
-        }
-    }
-
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        preOrder2(root, list);
+        Stack<TreeNode>st=new Stack<>();
+        List<Integer>list=new ArrayList<>();
+        TreeNode node=root;
+        st.push(node);
+        while(!st.isEmpty())
+        {
+            node=st.pop();
+            if(node==null)
+               return list;
+            list.add(node.val);
+            if(node.right!=null)
+               st.push(node.right);
+            if(node.left!=null)
+               st.push(node.left);
+        } 
         return list;
+
     }
 }
-
