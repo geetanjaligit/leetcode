@@ -15,37 +15,34 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> list=new ArrayList<>();
-        int n=levelOfTree(root);
-        for(int i=1;i<=n;i++)
+        Queue<TreeNode> q=new LinkedList<>();
+        List<List<Integer>> tr=new ArrayList<>();
+        List<Integer>list=new ArrayList<>();
+        if(root!=null)
         {
-            list.add(bfs(root,i));
+            q.add(root);
+            q.add(null);
         }
-        return list;
-    }
-    public int levelOfTree(TreeNode root)
-    {
-        if(root==null)
-           return 0;
-        int leftHt=levelOfTree(root.left);
-        int rightHt=levelOfTree(root.right);
-        return 1+Math.max(leftHt,rightHt);
-    }
-    public List<Integer> bfs(TreeNode root,int level)
-    {
-        List<Integer> list=new ArrayList<>();
-        if(root==null)
-           return list;
-        if(level==1)
+        while(!q.isEmpty())
         {
-            list.add(root.val);
-            return list;
+            TreeNode node=q.remove();
+            if(node!=null)
+            {
+                list.add(node.val);
+                if(node.left!=null)
+                   q.add(node.left);
+                if(node.right!=null)
+                   q.add(node.right);
+            }
+            else
+            {
+                tr.add(list);
+                if(q.isEmpty())
+                   break;
+                q.add(null);
+                list=new ArrayList<>();
+            }
         }
-        List<Integer>left=(bfs(root.left,level-1));
-        List<Integer>right=(bfs(root.right,level-1));
-        list.addAll(left);
-        list.addAll(right);
-        return list;
-        
+        return tr;
     }
 }
